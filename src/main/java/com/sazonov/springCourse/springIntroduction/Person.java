@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component("personBean")
 public class Person {
+    @Autowired
     private Pet pet;
     private int age;
 
@@ -18,7 +19,7 @@ public class Person {
         System.out.println("Person Bean created.");
     }
     /*Same as constructor will automatically set dependency if found needed Bean*/
-    @Autowired
+    //@Autowired
     public void setPet(Pet pet){
         System.out.println("Class Person has set a pet");
         this.pet = pet;
