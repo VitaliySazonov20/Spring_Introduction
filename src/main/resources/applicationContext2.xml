@@ -14,6 +14,11 @@
 <!--ProtoType Beans will only be created when getBean is called -->
     <bean id = "myPet"
           class = "com.sazonov.springCourse.springIntroduction.Dog"
-          scope  ="prototype">
+          scope  ="prototype"
+          init-method="init"
+          destroy-method="destroy">
     </bean>
+    <!--Init-method and destroy-method can have any name-->
+    <!--Prototype beans will not call destroy-method-->
+    <!--Programmer has to call destroy method himself-->
 </beans>

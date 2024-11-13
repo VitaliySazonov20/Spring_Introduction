@@ -15,5 +15,6 @@ public class LearningScopes {
         //Singleton will have same reference while Prototype will have different
         System.out.println(myDog);
         System.out.println(yourDog);
+        context.close();
     }
 }
