@@ -9,7 +9,7 @@ public class Person {
     private int age;
 
     /*Autowired annotation automatically uses needed Beans in constructor*/
-    @Autowired
+//    @Autowired
     public  Person(Pet pet){
         System.out.println("Person Bean created.");
         this.pet = pet;
@@ -17,6 +17,8 @@ public class Person {
     public Person(){
         System.out.println("Person Bean created.");
     }
+    /*Same as constructor will automatically set dependency if found needed Bean*/
+    @Autowired
     public void setPet(Pet pet){
         System.out.println("Class Person has set a pet");
         this.pet = pet;
