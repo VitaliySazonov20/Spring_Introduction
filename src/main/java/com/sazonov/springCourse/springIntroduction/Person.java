@@ -10,14 +10,14 @@ public class Person {
 //    @Autowired
 //    @Qualifier("dogBean")
     private Pet pet;
-//    @Value("${person.age}")
+    @Value("${person.age}")
     private int age;
-//    @Value("${person.lastName}")
+    @Value("${person.lastName}")
     private String lastName;
 
     /*Autowired annotation automatically uses needed Beans in constructor*/
 //    @Autowired
-    public  Person(@Qualifier("dogBean") Pet pet){
+    public  Person(Pet pet){
         System.out.println("Person Bean created.");
         this.pet = pet;
     }

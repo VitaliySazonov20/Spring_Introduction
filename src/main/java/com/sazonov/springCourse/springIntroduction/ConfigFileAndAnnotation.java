@@ -13,6 +13,8 @@ public class ConfigFileAndAnnotation {
 
 
         Person person = context.getBean("personBean", Person.class);
+        System.out.println(person.getAge());
+        System.out.println(person.getLastName());
         person.callYourPet();
     }
 }
