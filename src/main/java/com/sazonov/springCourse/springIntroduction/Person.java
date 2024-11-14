@@ -2,6 +2,7 @@ package com.sazonov.springCourse.springIntroduction;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component("personBean")
@@ -9,7 +10,10 @@ public class Person {
 //    @Autowired
 //    @Qualifier("dogBean")
     private Pet pet;
+    @Value("${person.age}")
     private int age;
+    @Value("${person.lastName}")
+    private String lastName;
 
     /*Autowired annotation automatically uses needed Beans in constructor*/
     @Autowired
@@ -37,5 +41,13 @@ public class Person {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
