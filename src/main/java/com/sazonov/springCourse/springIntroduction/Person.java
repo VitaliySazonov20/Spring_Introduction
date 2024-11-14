@@ -10,9 +10,9 @@ public class Person {
 //    @Autowired
 //    @Qualifier("dogBean")
     private Pet pet;
-    @Value("${person.age}")
+//    @Value("${person.age}")
     private int age;
-    @Value("${person.lastName}")
+//    @Value("${person.lastName}")
     private String lastName;
 
     /*Autowired annotation automatically uses needed Beans in constructor*/
