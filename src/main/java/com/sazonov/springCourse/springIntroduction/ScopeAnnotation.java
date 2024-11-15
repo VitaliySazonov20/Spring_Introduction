@@ -11,5 +11,6 @@ public class ScopeAnnotation {
         System.out.println("Are the 2 dogs the same?"+ (myDog==yourDog));
         System.out.println(myDog);
         System.out.println(yourDog);
+        context.close();
     }
 }

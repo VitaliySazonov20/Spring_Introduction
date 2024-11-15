@@ -16,5 +16,6 @@ public class ConfigFileAndAnnotation {
         System.out.println(person.getAge());
         System.out.println(person.getLastName());
         person.callYourPet();
+        context.close();
     }
 }
