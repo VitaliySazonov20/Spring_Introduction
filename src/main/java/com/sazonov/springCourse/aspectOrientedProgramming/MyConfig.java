@@ -7,5 +7,5 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @Configuration
 @ComponentScan("com.sazonov.springCourse.aspectOrientedProgramming")
 @EnableAspectJAutoProxy
-public class MyConfig {
+    public class MyConfig {
 }
