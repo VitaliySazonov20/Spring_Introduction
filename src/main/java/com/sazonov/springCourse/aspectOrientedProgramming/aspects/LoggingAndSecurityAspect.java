@@ -4,11 +4,12 @@ package com.sazonov.springCourse.aspectOrientedProgramming.aspects;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class LoggingAspect {
+public class LoggingAndSecurityAspect {
     /*Execution pointCut
     *
     * execution(access-modifiers-patter? return-type-pattern declaring-type-patter?
@@ -18,15 +19,20 @@ public class LoggingAspect {
     *
     * PointCut with * is wild card so get* is any method that starts with get
     * */
+
+    @Pointcut("execution(public * get*())")
+    private void allGetMethods(){}
+
+
 //    @Before("execution(public void com.sazonov.springCourse.aspectOrientedProgramming.UniversityLibrary.getBook())")
 //    public void beforeGetBookAdvice(){
 //        System.out.println("beforeGetBookAdvice: Attempt to get a book");
 //    }
-    @Before("execution(public void get*())")
+    @Before("allGetMethods()")
     public void beforeGetBookAdvice(){
         System.out.println("beforeGetBookAdvice: Attempt to get a book/magazine");
     }
-    @After("execution(public void getBook())")
+    @After("allGetMethods()")
     public void afterGetBookAdvice(){
         System.out.println("afterGetBookAdvice: A book has been taken");
     }
@@ -38,4 +44,9 @@ public class LoggingAspect {
     public void beforeReturnBookAdvice(){
         System.out.println("beforeReturnBookAdvice: Attempt to return book");
     }
+    @Before("allGetMethods()")
+    public void beforeGetSecurityAdvice(){
+        System.out.println("beforeGetSecurityAdvice: Checking credentials for getting a book/magazine");
+    }
+
 }
