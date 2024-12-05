@@ -30,7 +30,11 @@ public class LoggingAspect {
     public void afterGetBookAdvice(){
         System.out.println("afterGetBookAdvice: A book has been taken");
     }
-    @Before("execution(public void returnBook(..))")
+//    @Before("execution(public * returnBook(..))")
+//    public void beforeReturnBookAdvice(){
+//        System.out.println("beforeReturnBookAdvice: Attempt to return book");
+//    }
+    @Before("execution(public * returnBook(com.sazonov.springCourse.aspectOrientedProgramming.Book))")
     public void beforeReturnBookAdvice(){
         System.out.println("beforeReturnBookAdvice: Attempt to return book");
     }
