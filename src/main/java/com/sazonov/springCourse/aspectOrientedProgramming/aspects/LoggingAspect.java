@@ -1,11 +1,16 @@
 package com.sazonov.springCourse.aspectOrientedProgramming.aspects;
 
 
+
+import com.sazonov.springCourse.aspectOrientedProgramming.Book;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+
+import java.util.Arrays;
 
 @Component
 @Aspect
@@ -49,9 +54,27 @@ public class LoggingAspect {
 //    public void beforeGetBookAdvice(){
 //        System.out.println("beforeGetBookAdvice: Attempt to get a book");
 //    }
-    @Before("com.sazonov.springCourse.aspectOrientedProgramming.aspects.MyPointCuts.allGetMethods()")
-    public void beforeGetBookAdvice(){
-        System.out.println("beforeGetBookAdvice: Logging the attempt to get a book/magazine");
+    @Before("com.sazonov.springCourse.aspectOrientedProgramming.aspects.MyPointCuts.allAddMethods()")
+    public void beforeAddBookAdvice(JoinPoint joinPoint){
+
+//        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        System.out.println("methodSignature = " + joinPoint.getSignature());
+        System.out.println("methodSignature name = " + joinPoint.getSignature().getName());
+        Object[] arguments = joinPoint.getArgs();
+        for(Object obj: arguments){
+            if(obj instanceof Book){
+                Book myBook = (Book) obj;
+                System.out.println("Information about book: Name - "+
+                        myBook.getName() + ", author -"+ myBook.getAuthor() +", publication year - "+
+                        myBook.getPublicationYear());
+
+            }
+        }
+
+
+
+        System.out.println("beforeAddBookAdvice: Logging the attempt to get a book/magazine");
+        System.out.println("---------------------------------------------------------------");
     }
 //    @After("allGetMethods()")
 //    public void afterGetBookAdvice(){

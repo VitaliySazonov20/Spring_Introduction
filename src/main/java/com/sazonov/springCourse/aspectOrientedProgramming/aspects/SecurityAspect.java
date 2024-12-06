@@ -9,8 +9,9 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Order(5)
 public class SecurityAspect {
-    @Before("com.sazonov.springCourse.aspectOrientedProgramming.aspects.MyPointCuts.allGetMethods()")
-    public void beforeGetSecurityAdvice(){
-        System.out.println("beforeGetSecurityAdvice: Checking credentials for getting a book/magazine");
+    @Before("com.sazonov.springCourse.aspectOrientedProgramming.aspects.MyPointCuts.allAddMethods()")
+    public void beforeAddSecurityAdvice(){
+        System.out.println("beforeAddSecurityAdvice: Checking credentials for getting a book/magazine");
+        System.out.println("-------------------------------------------------------------------------");
     }
 }
