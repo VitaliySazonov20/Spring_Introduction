@@ -1,15 +1,16 @@
 package com.sazonov.springCourse.aspectOrientedProgramming.aspects;
 
 
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-public class LoggingAndSecurityAspect {
+@Order(1)
+public class LoggingAspect {
     /*Execution pointCut
     *
     * execution(access-modifiers-patter? return-type-pattern declaring-type-patter?
@@ -18,23 +19,26 @@ public class LoggingAndSecurityAspect {
     * PointCuts without ? are required
     *
     * PointCut with * is wild card so get* is any method that starts with get
+    *
+    * Order annotation controls what aspects are done in what order
     * */
-    @Pointcut("execution(* com.sazonov.springCourse.aspectOrientedProgramming.UniversityLibrary.get*())")
-    private void allGetMethodsFromUniLibrary(){}
-    @Pointcut("execution(* com.sazonov.springCourse.aspectOrientedProgramming.UniversityLibrary.return*())")
-    private void allReturnMethodsFromUniLibrary(){}
-    @Before("allGetMethodsFromUniLibrary()")
-    public void beforeGetLoggingAdvice(){
-        System.out.println("beforeGetLoggingAdvice: Writing Log #1");
-    }
-    @Before("allReturnMethodsFromUniLibrary()")
-    public void beforeReturnLoggingAdvice(){
-        System.out.println("beforeReturnLoggingAdvice: Writing Log #2");
-    }
-    @Before("allGetMethodsFromUniLibrary() || allReturnMethodsFromUniLibrary()")
-    public void allMethodsLoggingAdvice(){
-        System.out.println("allMethodsLoggingAdvice: Writing Log #3");
-    }
+
+//    @Pointcut("execution(* com.sazonov.springCourse.aspectOrientedProgramming.UniversityLibrary.get*())")
+//    private void allGetMethodsFromUniLibrary(){}
+//    @Pointcut("execution(* com.sazonov.springCourse.aspectOrientedProgramming.UniversityLibrary.return*())")
+//    private void allReturnMethodsFromUniLibrary(){}
+//    @Before("allGetMethodsFromUniLibrary()")
+//    public void beforeGetLoggingAdvice(){
+//        System.out.println("beforeGetLoggingAdvice: Writing Log #1");
+//    }
+//    @Before("allReturnMethodsFromUniLibrary()")
+//    public void beforeReturnLoggingAdvice(){
+//        System.out.println("beforeReturnLoggingAdvice: Writing Log #2");
+//    }
+//    @Before("allGetMethodsFromUniLibrary() || allReturnMethodsFromUniLibrary()")
+//    public void allMethodsLoggingAdvice(){
+//        System.out.println("allMethodsLoggingAdvice: Writing Log #3");
+//    }
 
 
 //    @Pointcut("execution(public * get*())")
@@ -45,10 +49,10 @@ public class LoggingAndSecurityAspect {
 //    public void beforeGetBookAdvice(){
 //        System.out.println("beforeGetBookAdvice: Attempt to get a book");
 //    }
-//    @Before("allGetMethods()")
-//    public void beforeGetBookAdvice(){
-//        System.out.println("beforeGetBookAdvice: Attempt to get a book/magazine");
-//    }
+    @Before("com.sazonov.springCourse.aspectOrientedProgramming.aspects.MyPointCuts.allGetMethods()")
+    public void beforeGetBookAdvice(){
+        System.out.println("beforeGetBookAdvice: Logging the attempt to get a book/magazine");
+    }
 //    @After("allGetMethods()")
 //    public void afterGetBookAdvice(){
 //        System.out.println("afterGetBookAdvice: A book has been taken");
@@ -61,9 +65,6 @@ public class LoggingAndSecurityAspect {
 //    public void beforeReturnBookAdvice(){
 //        System.out.println("beforeReturnBookAdvice: Attempt to return book");
 //    }
-//    @Before("allGetMethods()")
-//    public void beforeGetSecurityAdvice(){
-//        System.out.println("beforeGetSecurityAdvice: Checking credentials for getting a book/magazine");
-//    }
+
 
 }
