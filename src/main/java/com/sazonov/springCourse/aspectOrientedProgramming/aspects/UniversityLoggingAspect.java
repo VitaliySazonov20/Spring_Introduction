@@ -16,6 +16,8 @@ public class UniversityLoggingAspect {
     *
     * After is done as soon as method finishes regardless if an exception was thrown
     *
+    * Around is done before and after the method finishes.
+    *
     * */
     @Before("execution(* getStudents())")
     public void beforeGetStudentsLoggingAdvice(){
