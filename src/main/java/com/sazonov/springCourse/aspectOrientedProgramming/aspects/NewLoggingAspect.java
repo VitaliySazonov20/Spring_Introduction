@@ -12,12 +12,19 @@ public class NewLoggingAspect {
     public Object aroundReturnBookLoggingAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Throwable{
         System.out.println("aroundReturnBookLoggingAdvice: attempting to return a book to library");
 
-        long begin = System.currentTimeMillis();
-        Object targetMethodResult = proceedingJoinPoint.proceed();
-        long end = System.currentTimeMillis();
+//        long begin = System.currentTimeMillis();
+        Object targetMethodResult = null;
+        try {
+            targetMethodResult = proceedingJoinPoint.proceed();
+        } catch (Exception e){
+            System.out.println("aroundReturnBookLoggingAdvice: caught an exception "+ e);
+//            targetMethodResult = "Unknown book name";
+            throw e;
+        }
+//       long end = System.currentTimeMillis();
         System.out.println("aroundReturnBookLoggingAdvice: successfully returned a book to library");
-        System.out.println("aroundReturnBookLoggingAdvice: method returnBook was completed in "+
-                (end-begin)+ " milliseconds");
+//        System.out.println("aroundReturnBookLoggingAdvice: method returnBook was completed in "+
+//                (end-begin)+ " milliseconds");
         return targetMethodResult;
     }
 }
