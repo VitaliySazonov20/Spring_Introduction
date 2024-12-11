@@ -14,12 +14,24 @@ public class Test1 {
 
         try{// Session is the connection to the db
             Session session = factory.getCurrentSession();
-            Employee employee = new Employee("Vitaliy", "Sazonov",
-                    "Web Development", 60_000);
+            Employee employee = new Employee("Mary", "Jane",
+                    "Marketing", 55_000);
             session.beginTransaction();
             //session.save INSERTS into DB
             session.save(employee);
             session.getTransaction().commit();
+
+            //Id is not in constructor but bd auto generates it.
+            //Auto generated ID from bd is saved in employee.
+            System.out.println("added employee: "+ employee);
+
+            session = factory.getCurrentSession();
+            session.beginTransaction();
+            //session.get selects from DB using primary key
+            Employee firstEmployee = session.get(Employee.class, 1);
+            session.getTransaction().commit();
+
+            System.out.println("firstEmployee: "+ firstEmployee);
         }
         finally {
             factory.close();
