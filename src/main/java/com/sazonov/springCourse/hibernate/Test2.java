@@ -25,12 +25,21 @@ public class Test2 {
 
             //surname is not the name of the column but the name of the field
             //in Employee class.
-            List<Employee> employeeList = session.createQuery("from Employee "+
-                    "where surname = 'Doe'AND salary > 80_000")
-                    .getResultList();
-            for (Employee emp: employeeList){
-                System.out.println(emp);
-            }
+//            List<Employee> employeeList = session.createQuery("from Employee "+
+//                    "where surname = 'Doe'AND salary > 80_000")
+//                    .getResultList();
+//            for (Employee emp: employeeList){
+//                System.out.println(emp);
+//            }
+//            Employee employee =session.get(Employee.class, 1);
+//
+//            //Class is connected to db. Any changes done to class before commit
+//            //will be updated in bd once commit has been called.
+//            employee.setSalary(100_000);
+
+            session.createQuery("update Employee set salary = 105_000 "+
+                            "where surname = 'Doe'").executeUpdate();
+
             session.getTransaction().commit();
 
         }
