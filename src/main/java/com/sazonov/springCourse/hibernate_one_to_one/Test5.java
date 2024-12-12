@@ -1,12 +1,12 @@
-package com.sazonov.springCourse.hibernateTest2;
+package com.sazonov.springCourse.hibernate_one_to_one;
 
-import com.sazonov.springCourse.hibernateTest2.entity.Details;
-import com.sazonov.springCourse.hibernateTest2.entity.Employee;
+import com.sazonov.springCourse.hibernate_one_to_one.entity.Details;
+import com.sazonov.springCourse.hibernate_one_to_one.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class Test6 {
+public class Test5 {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -19,7 +19,7 @@ public class Test6 {
 
             session.beginTransaction();
             Details details = session.get(Details.class,4);
-            session.remove(details);
+            System.out.println(details.getEmployee());
 
             session.getTransaction().commit();
         }

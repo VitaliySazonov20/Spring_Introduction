@@ -1,4 +1,4 @@
-package com.sazonov.springCourse.hibernateTest2.entity;
+package com.sazonov.springCourse.hibernateCRUD.entity;
 
 import jakarta.persistence.*;
 
@@ -45,19 +45,7 @@ public class Employee {
     @Column(name="salary")
     private int salary;
 
-    /*
-    * OneToOne is the relationship between tables
-    * Can have cascade type which describes if the operation
-    * is done on connected Entities as well
-    *
-    *
-    * JoinColumn is the foreign key in db
-    * */
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "details_id ")
-    private Details employeeDetails;
-
-    public Employee(String name, String surname, String department, int salary) {
+    public Employee( String name, String surname, String department, int salary) {
         this.name = name;
         this.surname = surname;
         this.department = department;
@@ -117,13 +105,5 @@ public class Employee {
 
     public void setSalary(int salary) {
         this.salary = salary;
-    }
-
-    public Details getEmployeeDetails() {
-        return employeeDetails;
-    }
-
-    public void setEmployeeDetails(Details employeeDetails) {
-        this.employeeDetails = employeeDetails;
     }
 }

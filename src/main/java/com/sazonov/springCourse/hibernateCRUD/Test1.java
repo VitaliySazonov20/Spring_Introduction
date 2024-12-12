@@ -1,6 +1,6 @@
-package com.sazonov.springCourse.hibernateTest1;
+package com.sazonov.springCourse.hibernateCRUD;
 
-import com.sazonov.springCourse.hibernateTest1.entity.Employee;
+import com.sazonov.springCourse.hibernateCRUD.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
