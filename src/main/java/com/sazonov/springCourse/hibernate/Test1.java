@@ -14,8 +14,8 @@ public class Test1 {
 
         try{// Session is the connection to the db
             Session session = factory.getCurrentSession();
-            Employee employee = new Employee("Mary", "Jane",
-                    "Marketing", 55_000);
+            Employee employee = new Employee("Bob", "Grant",
+                    "CEO", 150_000);
             session.beginTransaction();
             //session.save INSERTS into DB
             session.save(employee);
