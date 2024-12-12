@@ -19,7 +19,7 @@ public class Test1 {
             Employee employee = new Employee("John","Doe",
                     "Sales", 80_000);
             Details details = new Details("Moscow","+79171238906","NotRealEmail@email.com");
-            employee.setEmployeeDetails(details);
+            employee.setDetails(details);
             session.beginTransaction();
 
             session.save(employee);

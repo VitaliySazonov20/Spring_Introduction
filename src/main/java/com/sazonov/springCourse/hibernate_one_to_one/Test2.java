@@ -19,7 +19,7 @@ public class Test2 {
             session.beginTransaction();
             Employee firstEmployee = session.get(Employee.class, 1);
             System.out.println(firstEmployee);
-            System.out.println(firstEmployee.getEmployeeDetails());
+            System.out.println(firstEmployee.getDetails());
 
             session.getTransaction().commit();
         }

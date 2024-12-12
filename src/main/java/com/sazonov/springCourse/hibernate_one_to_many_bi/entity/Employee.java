@@ -46,10 +46,9 @@ public class Employee {
     @Column(name="salary")
     private int salary;
 
-    public Employee(String name, String surname, String department, int salary) {
+    public Employee(String name, String surname, int salary) {
         this.name = name;
         this.surname = surname;
-        this.department = department;
         this.salary = salary;
     }
 
