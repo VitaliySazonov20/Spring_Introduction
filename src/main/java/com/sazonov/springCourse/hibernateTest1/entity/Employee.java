@@ -1,4 +1,4 @@
-package com.sazonov.springCourse.hibernate.entity;
+package com.sazonov.springCourse.hibernateTest1.entity;
 
 import jakarta.persistence.*;
 

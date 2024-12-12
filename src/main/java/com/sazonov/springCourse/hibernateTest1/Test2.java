@@ -1,12 +1,11 @@
-package com.sazonov.springCourse.hibernate;
+package com.sazonov.springCourse.hibernateTest1;
 
-import com.sazonov.springCourse.hibernate.entity.Employee;
+import com.sazonov.springCourse.hibernateTest1.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-
-public class Test5 {
+public class Test2 {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -14,18 +13,15 @@ public class Test5 {
                 .buildSessionFactory();
 
         try{
+
             Session session = factory.getCurrentSession();
+            session = factory.getCurrentSession();
             session.beginTransaction();
-
-            Employee employee =session.get(Employee.class, 4);
-
-            //Delete was deprecated and is recommended to use remove
-            //Remove uses Entity entity instead of Object object.
-//            session.delete(employee);
-            session.remove(employee);
-
+            //session.get selects from DB using primary key
+            Employee firstEmployee = session.get(Employee.class, 1);
             session.getTransaction().commit();
 
+            System.out.println("firstEmployee: "+ firstEmployee);
         }
         finally {
             factory.close();
