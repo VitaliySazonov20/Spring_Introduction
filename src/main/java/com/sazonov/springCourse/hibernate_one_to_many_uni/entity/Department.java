@@ -1,4 +1,4 @@
-package com.sazonov.springCourse.hibernate_one_to_many_bi.entity;
+package com.sazonov.springCourse.hibernate_one_to_many_uni.entity;
 
 
 import jakarta.persistence.*;

@@ -1,4 +1,4 @@
-package com.sazonov.springCourse.hibernate_one_to_many_bi;
+package com.sazonov.springCourse.hibernate_one_to_many_uni;
 
 
 import com.sazonov.springCourse.hibernate_one_to_many_bi.entity.Department;
