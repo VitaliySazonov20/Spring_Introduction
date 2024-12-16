@@ -39,8 +39,7 @@ public class Employee {
     @Column(name="surname")
     private String surname;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.DETACH
-    ,CascadeType.REFRESH,CascadeType.MERGE})
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "department_id")
     private Department department;
 

@@ -19,15 +19,24 @@ public class Test2 {
             Session session = factory.getCurrentSession();
             session.beginTransaction();
 
-//            Department department =session.get(Department.class,1);
-//            System.out.println(department);
+            System.out.println("GET Department");
+            Department department =session.get(Department.class,6);
+            System.out.println("Show Department");
+            System.out.println(department);
+//            System.out.println("Show Employees");
 //            System.out.println(department.getEmployeeList());
 
-            Employee employee = session.get(Employee.class,1);
-            System.out.println(employee);
-            System.out.println(employee.getDepartment());
+//            Employee employee = session.get(Employee.class,1);
+//            System.out.println(employee);
+//            System.out.println(employee.getDepartment());
 
             session.getTransaction().commit();
+            /*
+            * Will show LazyInitializationException if fetch type is lazy
+            * due to not loading employees during transaction.
+            * */
+            System.out.println("Show Employees");
+            System.out.println(department.getEmployeeList());
         }
         finally {
             factory.close();

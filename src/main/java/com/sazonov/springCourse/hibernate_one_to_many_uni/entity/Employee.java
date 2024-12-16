@@ -39,12 +39,7 @@ public class Employee {
     @Column(name="surname")
     private String surname;
 
-    @ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.DETACH
-    ,CascadeType.REFRESH,CascadeType.MERGE})
-    @JoinColumn(name = "department_id")
-    private Department department;
-
-    @Column(name="salary")
+        @Column(name="salary")
     private int salary;
 
     public Employee(String name, String surname, int salary) {
@@ -101,11 +96,4 @@ public class Employee {
                 '}';
     }
 
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
 }

@@ -17,15 +17,18 @@ public class Test1 {
 
         try{// Session is the connection to the db
             Session session = factory.getCurrentSession();
-            Department department = new Department("Management",
-                    500_000,100_000);
-            Employee employee = new Employee("Mary","Wink",
-                    155_000);
-            Employee employee2 = new Employee("Caleb","Rock",
-                    389_000);
+            Department department = new Department("IT",
+                    100_000,30_000);
+            Employee employee = new Employee("Anthony","Wilson",
+                    60_000);
+            Employee employee2 = new Employee("Constantine","Daniel",
+                    75_000);
+            Employee employee3 = new Employee("William","Forge",
+                    65_000);
 
             department.addEmployee(employee);
             department.addEmployee(employee2);
+            department.addEmployee(employee3);
             session.beginTransaction();
             session.persist(department);
             session.getTransaction().commit();
