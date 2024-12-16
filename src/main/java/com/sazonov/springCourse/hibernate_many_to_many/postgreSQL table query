@@ -1,0 +1,16 @@
+CREATE TABLE children (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(15),
+  age INTEGER
+);
+
+CREATE TABLE section (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(15)
+);
+
+CREATE TABLE child_section (
+  child_id INTEGER REFERENCES children(id) NOT NULL,
+  section_id INTEGER REFERENCES section(id) NOT NULL,
+  PRIMARY KEY (child_id, section_id)
+);
